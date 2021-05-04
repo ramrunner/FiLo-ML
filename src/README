@@ -1,0 +1,11 @@
+Filo simulator 
+<dsp@2f30.org>, 2021
+
+Package level description
+
+node/ 
+a goroutine based node that can communicate with others over a channel. 
+at every step it should perform some action.
+
+connect/
+interconnects nodes using various strategies
