@@ -2,8 +2,6 @@ package main
 
 import (
 	"context"
-	"filo/connect"
-	"filo/node"
 	"flag"
 	"fmt"
 	"log"
@@ -13,6 +11,9 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/ramrunner/FiLo-ML/connect"
+	"github.com/ramrunner/FiLo-ML/node"
 
 	"github.com/goccy/go-graphviz"
 	gv "github.com/goccy/go-graphviz"

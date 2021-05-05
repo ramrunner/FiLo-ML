@@ -1,10 +1,11 @@
 package connect
 
 import (
-	"filo/node"
 	"math/rand"
 	"sort"
 	"time"
+
+	"github.com/ramrunner/FiLo-ML/node"
 )
 
 var (
