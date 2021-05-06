@@ -106,7 +106,6 @@ func (n *Node) getRandInRange() int {
 func (n *Node) Work(ctx context.Context, wg *sync.WaitGroup, statc StatCollector) {
 	defer wg.Done()
 	iwg := &sync.WaitGroup{}
-	//owg := &sync.WaitGroup{}
 	inch := make(chan struct{})
 	inagg := make(chan struct{})
 	for _, ic := range n.ineighc {
@@ -137,6 +136,7 @@ func (n *Node) Work(ctx context.Context, wg *sync.WaitGroup, statc StatCollector
 	}()
 	outch := make(chan struct{})
 	go func() {
+		defer owg.Done()
 		for x := range outch {
 			for _, oc := range n.oneighc {
 				oc <- x
@@ -174,8 +174,8 @@ func (n *Node) Work(ctx context.Context, wg *sync.WaitGroup, statc StatCollector
 		n.iters--
 		if n.iters <= 0 {
 			log.Printf("%s DONE!", n.id)
-			close(outch)
 			break
 		}
 	}
+	close(outch)
 }
